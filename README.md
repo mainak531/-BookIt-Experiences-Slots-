@@ -1,73 +1,99 @@
-# Welcome to your Lovable project
+# 🎟️ BookIt – Experiences & Slot Booking Platform(Express + PostgreSQL)
 
-## Project info
+BookIt is a **full-stack booking application** that allows users to browse curated experiences, view slot availability, apply promo codes, and confirm bookings — all in a seamless, dynamic flow.
 
-**URL**: https://lovable.dev/projects/1f3d03c9-07d3-4f93-a336-4423ee76239d
+---
 
-## How can I edit this code?
+## 🚀 Features
+- **Dynamic Experience Listing** – Fetch experiences from the backend via REST APIs.  
+- **Slot Availability** – Each experience displays available booking slots.  
+- **Promo Code Validation** – Apply discount codes like `SAVE10` or `FLAT100`.  
+- **Booking System** – Stores user booking details securely.  
+- **Prevent Double Bookings** – Backend ensures slots aren’t overbooked.  
+- **Responsive UI** – Built with modern frontend stack (React + Tailwind).  
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/1f3d03c9-07d3-4f93-a336-4423ee76239d) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
+---
 **Use your preferred IDE**
 
 If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-Follow these steps:
+## Quick Start
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### **2️⃣ Install Dependencies**
+#### Frontend:
+```bash
+cd frontend
+npm install
+```
+#### Backend:
+```bash
+cd backend
+npm install
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### 2) Choose a mode
+- Mock mode: Do nothing (leave `DATABASE_URL` unset) and start the server.
+- DB mode: Provide a valid PostgreSQL connection string in `.env` (see below), apply the schema, then start the server.
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### 3) Run
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Server starts on `http://localhost:4000`.
 
 ## What technologies are used for this project?
 
-This project is built with:
+- Node.js + Express
+- PostgreSQL
+- Tailwind/React frontend 
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+---
 
-## How can I deploy this project?
+## 🌐 API Endpoints
 
-Simply open [Lovable](https://lovable.dev/projects/1f3d03c9-07d3-4f93-a336-4423ee76239d) and click on Share -> Publish.
+| Method | Endpoint | Description |
+|--------|-----------|-------------|
+| **GET** | `/experiences` | Fetch list of all experiences |
+| **GET** | `/experiences/:id` | Fetch details and available slots for a specific experience |
+| **POST** | `/bookings` | Create a new booking (with validation and slot check) |
+| **POST** | `/promo/validate` | Validate promo code and return discount |
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
+## 🔄 Integration Flow
+1. **Home Page** → Fetches data from `GET /experiences`  
+2. **Experience Details** → Fetched dynamically via `GET /experiences/:id`  
+3. **Checkout** → Posts booking data via `POST /bookings`  
+4. **Promo Code** → Validated using `POST /promo/validate`  
+5. **Confirmation Page** → Displays booking confirmation dynamically  
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+---
+---
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## 🧪 Example Promo Codes
+| Code | Discount |
+|------|-----------|
+| `SAVE10` | 10% off |
+| `FLAT100` | ₹100 off |
+
+---
+
+## 💡 Future Enhancements
+- Payment Gateway Integration (Razorpay / Stripe)
+- Email Booking Confirmation
+- Admin Dashboard for Experience Management
+- Slot Availability Analytics
+
+---
+
+## 👨‍💻 Author
+**Mainak Chanda**  
+📍 Kolkata, India  
+📧 [mainakchanda531@gmail.com](mailto:mainakchanda531@gmail.com)  
+🌐 [GitHub: mainak531](https://github.com/mainak531)
+
+---
+````
